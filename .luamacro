@@ -1,0 +1,82 @@
+\usepackage{fontenc}
+\usepackage{fontspec} %欧文フォント設定（和文フォント設定より先に行う）
+\usepackage[ipaex]{luatexja-preset} %和文フォントに IPAex フォントを指定する
+\usepackage{luacode}
+\usepackage{amsmath,amssymb,mathtools,bm,physics,exscale}
+\usepackage{graphicx,xcolor}
+\usepackage[labelformat=simple]{subcaption}
+\renewcommand\thesubfigure{(\alph{subfigure})}
+\renewcommand\thesubtable{(\alph{subtable})}
+% \usepackage{caption,booktabs}
+\usepackage{overpic,wrapfig,float}
+\usepackage{afterpage}%\afterpage{\clearpage} \newpage
+\usepackage{siunitx}
+\usepackage{tikz}
+\usetikzlibrary{intersections,shapes,arrows,chains,calc,angles,patterns,positioning,graphs,graphdrawing,through}
+\usegdlibrary{trees,force,layered}
+\usepackage[european]{circuitikz} % Loading circuitikz with siunitx option
+\usepackage{subfiles,url}
+%\usepackage{xr}
+% \usepackage{pythontex}
+\usepackage[unicode]{hyperref}
+\hypersetup{
+	colorlinks=false, % リンクに色をつけない設定
+	% bookmarks=true, % 以下ブックマークに関する設定
+	% bookmarksnumbered=true,
+	% pdfborder={0 0 0},
+	% bookmarkstype=toc
+}
+%式番号にsection追加
+\makeatletter
+    \renewcommand{\theequation}{\thesection.\arabic{equation}}
+    \@addtoreset{equation}{section}
+  \makeatother
+%図番号にsection追加
+\makeatletter
+    \renewcommand{\thefigure}{\thesection.\arabic{figure}}
+    \@addtoreset{figure}{section}
+  \makeatother
+%表番号にsection追加
+\makeatletter
+    \renewcommand{\thetable}{\thesection.\arabic{table}}
+    \@addtoreset{table}{section}
+  \makeatother
+%subfigureのref調整
+\makeatletter
+\renewcommand\p@subfigure{\thefigure}
+\makeatother
+\DeclareMathSymbol{\mhyph}{\mathalpha}{operators}{`-}
+% 自作コマンド
+\newcommand{\iv}{$I$--$V$}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\jj}{\mathrm{j}}                   % thin space before j
+\newcommand{\ee}{{\mathrm{e}}}
+\newcommand{\el}{\Leftrightarrow \quad}
+\newcommand{\tref}[1]{表~\ref{#1}}
+\newcommand{\mref}[1]{手順~\ref{#1}}
+\newcommand{\eref}[1]{式~(\ref{#1})}
+\newcommand{\figr}{図~}
+\newcommand{\tabr}{表~}
+\newcommand{\eqr}{式~}
+\newcommand{\eeref}[1]{,~(\ref{#1})}
+\newcommand{\fref}[1]{図~\ref{#1}}
+\newcommand{\rref}[1]{,~\ref{#1}}
+\newcommand{\const}{\mathrm{const.}}
+\newcommand{\veps}{\varepsilon}
+\newcommand{\vd}{\varDelta}
+\newcommand{\blw}[1]{_{\mathrm{#1}}}
+\newcommand{\abv}[1]{^{\mathrm{#1}}}
+\newcommand{\dash}{^{\prime}}
+\NewDocumentCommand\pytha{O{+} m m}{\sqrt{#2^2 #1 #3^2}}
+\newcommand{\lcalc}[2]{\luaexec{tex.print(\asluastring{\num}..'{'..string.format("#1",#2)..'}')}}
+
+%
+\NewDocumentCommand\fig{O{\linewidth} m m m}{\begin{figure}[tbp]
+\centering\includegraphics[width=#1]{#2}\caption{#3}{#4}
+\end{figure}}
+\NewDocumentCommand\wfig{m m m m}{\begin{wrapfigure}{r}{#1}
+\centering\includegraphics[width=#1]{#2}\caption{#3}{#4}
+\end{wrapfigure}}
+\NewDocumentCommand\mfig{O{0.45\linewidth} O{0.45\linewidth} m m m m m m}{\begin{figure}[tbp]
+\begin{minipage}{#1}\centering\includegraphics[width=#2]{#3}\caption{#4}{#5}\end{minipage}\begin{minipage}{#1}\centering\includegraphics[width=#2]{#6}\caption{#7}{#8}\end{minipage}
+\end{figure}}
