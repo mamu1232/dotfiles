@@ -14,7 +14,7 @@
 \usepackage{tikz}
 \usetikzlibrary{intersections,shapes,arrows,chains,calc,angles,patterns,positioning,graphs,graphdrawing,through}
 \usegdlibrary{trees,force,layered}
-\usepackage[european]{circuitikz} % Loading circuitikz with siunitx option
+\usepackage[european, RPvoltages]{circuitikz} % Loading circuitikz with siunitx option
 \usepackage{subfiles,url}
 %\usepackage{xr}
 % \usepackage{pythontex}
@@ -49,9 +49,11 @@
 % 自作コマンド
 \newcommand{\iv}{$I$--$V$}
 \newcommand{\ii}{\mathrm{i}}
-\newcommand{\jj}{\mathrm{j}}                   % thin space before j
+\newcommand{\jj}{\mathrm{j}}                   
 \newcommand{\ee}{{\mathrm{e}}}
-\newcommand{\el}{\Leftrightarrow \quad}
+\newcommand{\la}{\Leftarrow} 
+\newcommand{\ra}{\Rightarrow}
+\newcommand{\lra}{\Leftrightarrow}
 \newcommand{\tref}[1]{表~\ref{#1}}
 \newcommand{\mref}[1]{手順~\ref{#1}}
 \newcommand{\eref}[1]{式~(\ref{#1})}

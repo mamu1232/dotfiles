@@ -4,9 +4,6 @@ set renderoptions=type:directx,renmode:5
 " ウインドウサイズ
 set lines=55
 set columns=180
-" カラースキーム
-colorscheme hybrid
-set background=dark
 " 不可視文字の可視化
 set list
 set listchars=tab:>.,trail:_,extends:>,precedes:<,nbsp:%
